@@ -1,0 +1,19 @@
+{
+  "name": "stratum",
+  "version": "1.0.0",
+  "description": "Website",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel ./public/index.html",
+    "build": " parcel build ./public/index.html --dist-dir ./dist",
+    "dev": "nodemon app.js"
+  },
+  "author": "Marty Dixon",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "parcel": "^2.8.3"
+  }
+}

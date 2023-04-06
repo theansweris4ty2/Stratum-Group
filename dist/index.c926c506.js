@@ -1,0 +1,2 @@
+const staffBios=document.querySelectorAll(".bio"),hero=document.querySelector(".section.hero"),reveal=(e,t,o)=>{t.style.transform=`translateX(${200*e}%)`,o.scrollIntoView({behavior:"smooth",block:"start"})};staffBios.forEach((e=>e.addEventListener("click",(e=>{const t=e.target.closest("div").getAttribute("data-id"),o=document.querySelector(`#${t}`);o.classList.toggle("hidden"),setTimeout((()=>reveal(1,o,o)),0),o.addEventListener("click",(()=>{reveal(-1,o,hero),setTimeout((()=>{o.classList.toggle("hidden")}),1e3)}))}))));
+//# sourceMappingURL=index.c926c506.js.map
