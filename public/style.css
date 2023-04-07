@@ -12,7 +12,7 @@ body {
   font-family: 'Oswald', sans serif;
   display: grid;
   grid-template-columns: 14% 86%;
-  grid-auto-rows: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: 1fr;
 }
 #logo {
   justify-self: center;
@@ -47,7 +47,7 @@ body {
   max-width: 101%;
   margin-left: -1%;
   grid-column: 2 / span 1;
-  grid-row: 1 / span 3;
+  grid-row: 1 / span 2;
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
@@ -79,11 +79,19 @@ body {
 .major {
   grid-column: 2 / span 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-row: 4 / span 2;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row: 3 / span 2;
   border-top: 2px solid #afafaf;
   padding: 20px;
   box-sizing: border-box;
+  font-size: 1.5em;
+}
+
+.main.home{
+  grid-row: 1/ span 3;}
+  
+.major.home{
+  grid-row: 4/ span 2;
 }
 .major.environmental {
   grid-row: 3 / span 5;
@@ -112,7 +120,7 @@ body {
   grid-column: span 2;
 }
 .footer {
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 3;
   display: grid;
   grid-template-columns: 1fr 1fr;
   border-top: 2px solid #afafaf;
@@ -142,27 +150,36 @@ body {
   margin: 0;
 }
 .major.about {
-  grid-row: 4 / span 3;
+  grid-row: 3 / span 3;
   max-width: 100%;
   min-width: 100%;
   padding: 25px;
   box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 .major.about h1 {
   margin-top: 0;
 }
 .major.about p {
   margin-top: 8px;
+  grid-column: 1/ span 2;
+}
+.major.about .major-logo{
+  grid-column: 3/ span 1;
+}
+.major.about .footer{
+  grid-column: 1/ span 3;
 }
 .major-logo {
-  width: 300px;
-  height: 300px;
-  grid-column: 2 / span 1;
+  width: 200px;
+  height: 200px;
+  grid-column: 3 / span 1;
   filter: sepia(20%);
+  justify-self: center;
 }
 .major p {
-  max-width: 540px;
-  grid-column: 1 / span 1;
+  grid-column: 1 / span 2;
   margin-left: 10px;
 }
 #logo img {
@@ -209,7 +226,7 @@ ul {
 .main.staff {
   grid-column: 2 / span 1;
   display: grid;
-  grid-row: 1 / span 3;
+  grid-row: 1 / span 2;
   grid-template-columns: 1fr;
   padding-right: 60px;
   background-image: url('https://www.mtu.edu/geo/undergraduate/geo-eng/geo-eng-advisory-board/images/slope-stability-800banner.jpg');
@@ -230,7 +247,7 @@ ul {
   font-size: 2em;
 }
 .major.staff {
-  grid-row: 4 / span 2;
+  grid-row: 3 / span 3;
   display: grid;
   grid-template-columns: 1fr;
   margin: 0;
@@ -243,22 +260,29 @@ ul {
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
   grid-row: 1 / span 2;
-  padding-top: 4%;
+  grid-auto-rows: 1fr 1fr;
+  justify-content: center;
 }
 .bio {
   grid-auto-rows: max-content;
   grid-column: span 1;
-  grid-row: 1;
+  grid-row: 1/ span 1;
   display: grid;
   grid-template-columns: 1fr;
   text-align: center;
+}
+.staff-bios p{
+  grid-column: 1/ span 3;
+}
+.staff-bios .major-logo{
+  grid-column: 4/ span 1;
 }
 .major.staff .bio-image {
   grid-column: 1 / span 1;
   grid-row: 1 / span 1;
   justify-self: center;
-  width: 260px;
-  height: 260px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
 }
 
@@ -370,18 +394,21 @@ button:hover {
   display: none;
 }
 
-@media screen and (max-width: 1200px) {
-  .main.home,
+@media screen and (max-width: 1200px){
   .main.about,
   .main.environmental {
     grid-row: 1 / span 1;
+    font-size: 3em;
   }
   .main.environmental {
     font-size: 3em;
   }
-
+  .main.home {
+    grid-row: 1/ span 2;
+    font-size: 3em;
+  }
   .major.home {
-    grid-row: 2 / span 1;
+    grid-row: 3 / span 1;
   }
   .major.about,
   .major.environmental {
@@ -407,14 +434,13 @@ button:hover {
   .major-logo {
     width: 200px;
     height: 200px;
-    justify-self: center;
   }
   .major.staff .bio-image {
     width: 180px;
     height: 180px;
   }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 900px){
   .navbar li {
     margin-top: 25px;
   }
@@ -429,13 +455,27 @@ button:hover {
   .navbar h4 {
     font-size: 0.9em;
   }
+  .major-logo{
+    width: 180px;
+    height: 180px;
+  }
+  .major.about .major-logo{
+    display: none;
+  }
+  .major.about p{
+    grid-column: 1/ span 4;
+  }
   .major.home {
     padding: 25px;
-    grid-row: 2 / span 1;
+    grid-row: 3 / span 2;
   }
 
   .main.home {
     font-size: 2em;
+
+  }
+  .main.about{
+    font-size: 3em
   }
 
   .major.staff .bio-image {
@@ -454,9 +494,6 @@ button:hover {
     font-size: 1em;
   }
 
-  .major.about p {
-    grid-column: span 2;
-  }
   .contact-info {
     grid-template-columns: 1fr;
     grid-auto-rows: 1fr 1fr;
@@ -476,10 +513,25 @@ button:hover {
     grid-row: 3 / span 2;
   }
 }
-@media screen and (max-width: 600px) {
-  .major.home,
-  .major.about {
-    grid-row: 2 / span 3;
+@media screen and (max-width: 650px){
+  .major.home
+   {
+    grid-row: 2 / span 1;
+  }
+  .major.about{
+    grid-row: 2/ span 3
+  }
+  .major.home .major-logo{
+    width: 120px;
+    height: 120px;
+  }
+  .navbar #logo{
+    width: 40px;
+    height: 40px;
+  }
+  .navbar #logo img{
+    width: 40px;
+    height: 40px;
   }
   .navbar {
     text-align: start;
@@ -488,10 +540,10 @@ button:hover {
     margin-top: 25px;
   }
   .navbar a {
-    font-size: 0.8em;
+    font-size: 0.5em;
   }
   .navbar h1 {
-    font-size: 1.5em;
+    font-size: 1em;
   }
   .navbar h4 {
     font-size: 0.7em;
@@ -500,8 +552,14 @@ button:hover {
     width: 80px;
     height: 80px;
   }
-  .main.home {
-    font-size: 1.75em;
+  .main.home{
+    font-size: 1em;
+  }
+  .major.home{
+    font-size: .7em;
+  }
+  .main.about{
+    font-size: 2em
   }
   .staff-bios {
     grid-template-columns: 50% 50%;
