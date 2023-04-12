@@ -5,8 +5,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  min-height: 100%;
-  min-width: 100%;
+  max-height: 1200px;
   background-color: #ddd;
   position: relative;
   font-family: 'Oswald', sans serif;
@@ -423,8 +422,12 @@ button:hover {
     justify-self: start;
   }
   .bio h1 {
-    font-size: 1.5em;
+    font-size: 1.4em;
+    margin: 0;
   }
+  /* .bio-image{
+    margin: 0;
+  } */
   .main.contact {
     grid-row: span 3;
   }
